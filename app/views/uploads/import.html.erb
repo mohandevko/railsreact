@@ -1,0 +1,7 @@
+<%= form_for :file_upload, :url => upload_data_path, method: :post,:html => {:multipart => true} do |f| %>
+  <%= f.file_field :my_file %>
+  <%= f.submit "Upload" %>
+<% end %>
+
+<br /><br />
+<%= link_to "Back", uploads_path %>

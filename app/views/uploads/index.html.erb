@@ -1,0 +1,74 @@
+  <style>
+    .header{
+        background-color: #333;
+        color:#fff;
+        padding: 2%;
+        text-align: center;
+      }
+
+      .content{
+      }
+
+      header{
+        font-size: -webkit-xxx-small;
+      }
+
+      footer{
+        background-color: #333;
+        height: 10vh;
+        color:#fff;
+        padding: 0;
+        text-align: center;
+        position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 60px;
+          line-height: 60px;
+      }
+  </style>  
+
+
+<div class="container-fluid header">
+  <header>
+    Rails-React
+  </header>
+  
+  <div class="form-inline my-2 my-lg-0">
+    <%= link_to "Import file", import_path,class: "btn btn-secondary my-2 my-sm-0" %>
+  </div>      
+</div>
+
+<div class="container-fluid">
+	<br /><br />
+	<%= will_paginate @data, :container => false %>
+	<br /><br />
+    <div class="content row">
+      		<br /><br />
+			
+		<div class="span5">
+            <table class="table table-striped table-condensed">
+                <thead>
+                  <tr>
+                      <th>Pri</th>
+                      <th>Question</th>
+                      <th>Role</th>
+                      <th>Conditions</th>
+                      <th>Mappings</th>
+                  </tr>
+                </thead>   
+              <tbody>
+              	<% @data.each do |data| %>
+                <tr>
+                    <td><%= data.pri %></td>
+                    <td><%= sortable data.question %></td>
+                    <td><%= sortable data.role %></td>
+                    <td><%= data.conditions %></td>
+                    <td><%= sortable data.mapping %></td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
