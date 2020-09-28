@@ -3,6 +3,7 @@ class UploadsController < ApplicationController
   require 'csv'
   def index
   	@data = Mapping.paginate(page: params[:page])
+    @data = @data.order(params[:sort])
   end
 
   def import

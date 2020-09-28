@@ -51,20 +51,20 @@
                 <thead>
                   <tr>
                       <th>Pri</th>
-                      <th>Question</th>
-                      <th>Role</th>
+                      <th><%= sortable "Question" %></th>
+                      <th><%= sortable "Role" %></th>
                       <th>Conditions</th>
-                      <th>Mappings</th>
+                      <th><%= sortable "Mappings" %></th>
                   </tr>
                 </thead>   
               <tbody>
               	<% @data.each do |data| %>
                 <tr>
                     <td><%= data.pri %></td>
-                    <td><%= sortable data.question %></td>
-                    <td><%= sortable data.role %></td>
+                    <td><%= data.question %></td>
+                    <td><%= data.role %></td>
                     <td><%= data.conditions %></td>
-                    <td><%= sortable data.mapping %></td>
+                    <td><%= data.mapping %></td>
                 </tr>
                 <% end %>
               </tbody>
