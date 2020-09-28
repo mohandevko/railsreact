@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   root 'uploads#index'
   match 'import', to: 'uploads#import', via: 'get'
   match 'upload_data', to: 'uploads#upload_data', via: 'post'
+  match 'delete_data', to: 'uploads#delete_data', via: 'delete'
 
 end

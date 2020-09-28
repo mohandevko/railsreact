@@ -28,6 +28,11 @@ class UploadsController < ApplicationController
     redirect_to uploads_path
   end
 
+  def delete_data
+    Mapping.delete_all
+    redirect_to uploads_path
+  end
+
   private
 
   def sort_column
