@@ -3,7 +3,7 @@ class UploadsController < ApplicationController
   require 'csv'
   def index
   	@data = Mapping.paginate(page: params[:page])
-    @data = @data.order(params[:sort])
+    @data = @data.order(sort_column + " " + sort_direction)
   end
 
   def import
@@ -37,9 +37,9 @@ class UploadsController < ApplicationController
   private
 
   def sort_column
-    Mapping.column_names.include?(params[:sort]) ? params[:sort] : "question"
-    Mapping.column_names.include?(params[:sort]) ? params[:sort] : "role"
-    Mapping.column_names.include?(params[:sort]) ? params[:sort] : "mapping"
+    Mapping.column_names.include?(params[:sort]) ? params[:sort] : "Question"
+    Mapping.column_names.include?(params[:sort]) ? params[:sort] : "Role"
+    Mapping.column_names.include?(params[:sort]) ? params[:sort] : "Mappings"
   end
 
   def sort_direction
